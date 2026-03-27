@@ -1,5 +1,16 @@
 # Implementação de ISAM em Python
 
+```txt
+  ____              Trabalho Prático
+ /\' .\    _____     ISAM em Python
+/: \___\  / .  /\    - SGBD 2026.1 -
+\' / . / /____/..\    Arthur Nunes
+ \/___/  \'  '\  /    Samyra Vitoria 
+          \'__'\/     Maria Vitoria
+```
+
+## Descrição
+
 Este projeto consiste na implementação de uma simulação da estrutura de dados ISAM (Indexed Sequential Access Method) em Python, conforme proposto na disciplina de Sistema de Gerenciamento de Banco de Dados 2026.1
 
 **O ISAM é uma estrutura de indexação estática, na qual:**
