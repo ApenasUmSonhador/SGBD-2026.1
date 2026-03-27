@@ -86,11 +86,12 @@ Funcionalidades Implementadas
 ## Páginas de Overflow
 
 As páginas de overflow:
+
 - Possuem capacidade limitada (2 registros)
 - São organizadas como uma lista encadeada
 - São utilizadas apenas quando a folha está cheia
 
-### Exemplo:
+### Exemplo
 
 D: [40, 46] -> [41, 42] -> [43, 44]
 
@@ -129,6 +130,7 @@ D: [40, 46] -> [41, 42] -> [48]
 ## Análise
 
 A implementação permite observar que:
+
 - O ISAM mantém alta eficiência para buscas iniciais
 - O desempenho degrada com o crescimento do overflow
 - Não há reorganização automática da estrutura
