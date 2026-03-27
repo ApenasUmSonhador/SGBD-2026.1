@@ -7,6 +7,7 @@ def clear_screen():
 
 # Função para exibir arte ASCII (apenas para diversão)
 def ascii_art():
+    # Creditos para: https://www.asciiart.eu/art/147e286317b77955
     print(r"""Por Arthur Nunes, Samyra Vitoria e Maria Vitoria
                  ____
                 /\' .\    _____
