@@ -3,6 +3,8 @@ from leaf import LeafPage
 
 class ISAM:
     def __init__(self):
+        # Raiz adotada pelo documento
+        self.root = 40
         # Estrutura fixa com 6 folhas pré-definidas pelo documento
         self.leaves = {
             "A": LeafPage([10, 15]),
@@ -14,13 +16,16 @@ class ISAM:
         }
 
     def _find_leaf(self, key):
-        if key < 40:
+        # Folhas esquerdas
+        if key < self.root:
             if key < 20:
                 return self.leaves["A"]
             elif key < 33:
                 return self.leaves["B"]
             else:
                 return self.leaves["C"]
+            
+        # Folhas direitas
         else:
             if key < 51:
                 return self.leaves["D"]
