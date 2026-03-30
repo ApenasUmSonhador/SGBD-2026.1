@@ -1,72 +1,66 @@
+import pytest
 from isam import ISAM
 
-def test_operations():
+
+@pytest.fixture
+def isam_tree():
+    """Fixture para inicializar a árvore ISAM"""
+    return ISAM('tree_configure.json')
+
+
+class TestISAMOperations:
     """Testa as operações insert, search e remove da estrutura ISAM"""
-    
-    # Inicializa a árvore
-    isam = ISAM('tree_configure.json')
-    isam.print_structure()  # Mostra a estrutura inicial para referência
 
-    print(r"""    ╔════════════════════════════════════════════════════════════╗
-    ║                 TESTES DAS OPERAÇÕES ISAM                  ║
-    ╚════════════════════════════════════════════════════════════╝""")
+    def test_insert(self, isam_tree):
+        """Teste de inserção"""
+        new_keys = [18, 22, 27, 35, 41, 44, 63, 67, 83, 86, 121, 145]
+        for key in new_keys:
+            isam_tree.insert(key)
+        # Verify all keys were inserted
+        for key in new_keys:
+            assert isam_tree.search(key)
 
-    # --- TESTE 1: INSERT ---
-    print(r"""    ╔════════════════════════════════════════════════════════════╗
-    ║                     TESTE DE INSERÇÃO                      ║
-    ╚════════════════════════════════════════════════════════════╝
-    ╔════════════════════════════════════════════════════════════╗""")
-    new_keys = [18, 22, 27, 35, 41, 44, 63, 67, 83, 86, 121, 145]
-    for key in new_keys:
-        isam.insert(key)
-        print(f"      Inserindo a chave {key}... OK")
-    
-    print(r"""    ╚════════════════════════════════════════════════════════════╝""")
-    isam.print_structure()
-    
-    # --- TESTE 2: REMOVE ---
-    print(r"""    ╔════════════════════════════════════════════════════════════╗
-    ║                      TESTE DE REMOÇÃO                      ║
-    ╚════════════════════════════════════════════════════════════╝
-    ╔════════════════════════════════════════════════════════════╗""")
-    keys_to_remove = [27, 44, 67, 83, 145]
-    for key in keys_to_remove:
-        result = isam.remove(key)
-        print(f"      Removendo a chave {key}... {'OK' if result else 'FALHA'}")
-    
-    print(r"""    ╚════════════════════════════════════════════════════════════╝""")
-    isam.print_structure()
-    
-    # --- TESTE 3: SEARCH (igualdade) ---
-    print(r"""    ╔════════════════════════════════════════════════════════════╗
-    ║                 TESTE DE BUSCA (IGUALDADE)                 ║
-    ╚════════════════════════════════════════════════════════════╝
-    ╔════════════════════════════════════════════════════════════╗""")
-    test_keys = [22, 35, 44, 90]
-    for key in test_keys:
-        result = isam.search(key)
-        print(f"      Buscando a chave {key}... {'Encontrada' if result else 'A chave não existe na estrutura'}")
-    
-    
-    print(r"""    ╚════════════════════════════════════════════════════════════╝""")
+    def test_remove(self, isam_tree):
+        """Teste de remoção"""
+        # Insert keys first
+        new_keys = [18, 22, 35, 41, 44, 63, 67, 83, 86, 121, 145]
+        for key in new_keys:
+            isam_tree.insert(key)
+        
+        # Remove keys
+        keys_to_remove = [44, 67, 83, 145]
+        for key in keys_to_remove:
+            result = isam_tree.remove(key)
+            assert result
+        
+        # Verify keys were removed
+        for key in keys_to_remove:
+            assert not isam_tree.search(key)
 
-    # --- TESTE 4: RANGE SEARCH ---
-    print(r"""    ╔════════════════════════════════════════════════════════════╗
-    ║                 TESTE DE BUSCA (INTERVALO)                 ║
-    ╚════════════════════════════════════════════════════════════╝
-    ╔════════════════════════════════════════════════════════════╗""")
-    range_test = [[20,50], [60,90], [120,150]]
-    for start, end in range_test:
-        result = isam.range_search(start, end)
-        print(f"      Buscando no intervalo ({start}, {end}): {result}")
-    
-    print(r"""    ╚════════════════════════════════════════════════════════════╝""")
-    
-    print(r"""    ╔════════════════════════════════════════════════════════════╗
-    ║                     RESUMO DE EXECUÇÃO                     ║
-    ╠════════════════════════════════════════════════════════════╣
-    ║             As operações funcionam corretamente!           ║
-    ╚════════════════════════════════════════════════════════════╝""")
+    def test_search_equality(self, isam_tree):
+        """Teste de busca por igualdade"""
+        new_keys = [18, 22, 27, 35, 41, 44, 63, 67, 83, 86, 121, 145]
+        for key in new_keys:
+            isam_tree.insert(key)
+        
+        # Test existing keys
+        assert isam_tree.search(22)
+        assert isam_tree.search(35)
+        
+        # Test non-existing key
+        assert not isam_tree.search(90)
 
-if __name__ == "__main__":
-    test_operations()
+    def test_range_search(self, isam_tree):
+        """Teste de busca por intervalo"""
+        new_keys = [18, 22, 27, 35, 41, 44, 63, 67, 83, 86, 121, 145]
+        for key in new_keys:
+            isam_tree.insert(key)
+        
+        result_1 = isam_tree.range_search(20, 50)
+        assert len(result_1) > 0
+        
+        result_2 = isam_tree.range_search(60, 90)
+        assert len(result_2) > 0
+        
+        result_3 = isam_tree.range_search(120, 150)
+        assert len(result_3) > 0

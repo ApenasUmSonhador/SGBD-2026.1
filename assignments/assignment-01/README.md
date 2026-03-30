@@ -97,11 +97,17 @@ D: [40, 46] -> [41, 42] -> [43, 44]
 
 ## Como Executar
 
-1. Navegue até a pasta do projeto:
-cd isam
+- Execute o programa:
 
-2. Execute o programa:
+```bash
 python main.py
+```
+
+- Para executar os testes:
+
+```bash
+python -m pytest
+```
 
 ## Interface do Sistema
 
@@ -124,8 +130,10 @@ Ao iniciar, o sistema:
 
 3. Demonstra o uso de overflow:
 
+```txt
 B: [20, 27] -> [23]
 D: [40, 46] -> [41, 42] -> [48]
+```
 
 ## Análise
 
