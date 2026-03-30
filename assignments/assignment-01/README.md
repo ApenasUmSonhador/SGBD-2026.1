@@ -107,7 +107,15 @@ D: [40, 46] -> [41, 42] -> [43, 44]
 python main.py
 ```
 
-- Para executar os testes:
+## Instalação e Execução de testes
+
+- Instale as dependências:
+
+```bash
+pip install pytest
+```
+
+- Execute
 
 ```bash
 python -m pytest
