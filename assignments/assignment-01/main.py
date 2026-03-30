@@ -19,16 +19,16 @@ def ascii_art():
 
 # Função para exibir o menu de opções
 def menu():
-    print(r"""    ╔════════════════════════════════════════╗
-    ║            Simulador ISAM              ║
-    ╠════════════════════════════════════════╣
-    ║  [1] Inserir                           ║
-    ║  [2] Remover                           ║
-    ║  [3] Buscar (igualdade)                ║
-    ║  [4] Buscar (intervalo)                ║
-    ║  [5] Mostrar estrutura                 ║
-    ║  [0] Sair                              ║
-    ╚════════════════════════════════════════╝""")
+    print(r"""    ╔════════════════════════════════════════════════════════════╗
+    ║                       Simulador ISAM                       ║
+    ╠════════════════════════════════════════════════════════════╣
+    ║  [1] Inserir                                               ║
+    ║  [2] Remover                                               ║
+    ║  [3] Buscar (igualdade)                                    ║
+    ║  [4] Buscar (intervalo)                                    ║
+    ║  [5] Mostrar estrutura                                     ║
+    ║  [0] Sair                                                  ║
+    ╚════════════════════════════════════════════════════════════╝""")
 
 
 # Função principal que controla o fluxo do programa
