@@ -1,4 +1,4 @@
-from teste import ISAM
+from isam import ISAM
 from os import system, name
 
 # Função para limpar a tela (compatível com Windows e Unix)

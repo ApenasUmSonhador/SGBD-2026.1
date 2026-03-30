@@ -1,4 +1,4 @@
-from teste import ISAM
+from isam import ISAM
 
 def test_operations():
     """Testa as operações insert, search e remove da estrutura ISAM"""
