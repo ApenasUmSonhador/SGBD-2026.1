@@ -31,12 +31,16 @@ Simular o funcionamento de um índice ISAM, permitindo observar:
 
 ## Estrutura do Projeto
 
-``` bash
-isam/
-│── overflow.py   # Implementação das páginas de overflow encadeadas
-│── leaf.py       # Implementação das páginas folha
-│── isam.py       # Estrutura principal do índice ISAM
-│── main.py       # Interface interativa (menu)
+```bash
+assignments-01/
+│── index_node.py       # Abstração de nó na árvore estática
+│── isam.py             # Estrutura principal do índice ISAM
+│── leaf.py             # Implementação das páginas folha
+│── main.py             # Interface interativa (menu)
+│── overflow.py         # Implementação das páginas de overflow encadeadas
+│── README.md           # Esta documentação
+│── test_operations.py  # Testes unitários das operações
+│── tree_configure.json # Configuração rápida da árvore
 ```
 
 ## Estrutura Inicial do Índice
