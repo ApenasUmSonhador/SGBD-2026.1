@@ -5,8 +5,9 @@ class LeafPage:
     # Cada folha pode armazenar até 2 chaves (sem contar overflow)
     CAPACITY = 2
 
-    def __init__(self, keys):
+    def __init__(self, keys, label=None):
         self.keys = keys
+        self.label = label
         self.overflow = None
 
     # Insere chave na folha ou na cadeia de overflow
