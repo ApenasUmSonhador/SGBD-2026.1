@@ -25,15 +25,17 @@ class IndexNode:
             
             # A chave buscada é maior que a ultima key, retorna o ultimo filho
             return self.children[-1]
-        
-        # Estratégia 2: Outro cenário - verifica ranges dos filhos, para compatibilidade com a configuração dada
-        for child in self.children:
-            if child.keys:
-                min_key = min(child.keys)
-                max_key = max(child.keys)
+
+        # Estratégia desnecessária pois a configuração dada tem exatamente N chaves e N+1 filhos,
+        #  mas deixo aqui para mostrar como estávamos abordando o problema.
+        # # Estratégia 2: Outro cenário - verifica ranges dos filhos, para compatibilidade com a configuração dada
+        # for child in self.children:
+        #     if child.keys:
+        #         min_key = min(child.keys)
+        #         max_key = max(child.keys)
                 
-                if min_key <= key <= max_key:
-                    return child
+        #         if min_key <= key <= max_key:
+        #             return child
         
         # Fallback: retorna o último filho
         return self.children[-1]

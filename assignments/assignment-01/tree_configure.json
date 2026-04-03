@@ -19,40 +19,6 @@
 					"label": "RIGHT"
 				}
 			]
-		},
-		{
-			"nodes": [
-				{
-					"keys": [10, 15],
-					"label": "A",
-					"capacity": 1
-				},
-				{
-					"keys": [20, 27],
-					"label": "B",
-					"capacity": 1
-				},
-				{
-					"keys": [33, 37],
-					"label": "C",
-					"capacity": 1
-				},
-				{
-					"keys": [40, 46],
-					"label": "D",
-					"capacity": 1
-				},
-				{
-					"keys": [51, 55],
-					"label": "E",
-					"capacity": 1
-				},
-				{
-					"keys": [63, 97],
-					"label": "F",
-					"capacity": 1
-				}
-			]
 		}
 	],
 	"leaves": [
